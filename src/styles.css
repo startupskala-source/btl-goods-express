@@ -64,8 +64,9 @@
 :root {
   --radius: 0.375rem;
   /* BTL Transportes — deep navy + amber accents */
-  --background: oklch(0.985 0.005 95);
-  --foreground: oklch(0.18 0.04 250);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.२0 0.02 20);
+}
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.18 0.04 250);
   --popover: oklch(1 0 0);
