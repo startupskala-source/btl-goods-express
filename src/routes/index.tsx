@@ -51,7 +51,7 @@ function Nav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         <a href="#top" className="flex items-center gap-2 text-primary-foreground">
           <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-gradient-amber shadow-amber">
-            <Truck className="h-5 w-5 text-primary" strokeWidth={2.5} />
+            <Truck className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
           </div>
           <div className="leading-none">
             <div className="font-display text-2xl tracking-wider">BTL</div>
@@ -66,7 +66,7 @@ function Nav() {
         </nav>
         <a
           href="#contato"
-          className="hidden items-center gap-2 rounded-sm bg-gradient-amber px-5 py-2.5 text-sm font-semibold text-primary shadow-amber transition hover:brightness-105 md:inline-flex"
+          className="hidden items-center gap-2 rounded-sm bg-gradient-amber px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-amber transition hover:brightness-105 md:inline-flex"
         >
           Solicitar cotação <ArrowRight className="h-4 w-4" />
         </a>
@@ -104,7 +104,7 @@ function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#contato"
-              className="group inline-flex items-center gap-2 rounded-sm bg-gradient-amber px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary shadow-amber transition hover:brightness-105"
+              className="group inline-flex items-center gap-2 rounded-sm bg-gradient-amber px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-amber transition hover:brightness-105"
             >
               Solicitar cotação
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -352,7 +352,7 @@ function Cta() {
             <Field name="carga" label="Descrição da carga" textarea />
             <button
               type="submit"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-amber px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary shadow-amber transition hover:brightness-105"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-amber px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-amber transition hover:brightness-105"
             >
               Enviar cotação <ArrowRight className="h-4 w-4" />
             </button>
@@ -386,7 +386,7 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-10 md:flex-row md:items-center">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-gradient-amber">
-            <Truck className="h-5 w-5 text-primary" strokeWidth={2.5} />
+            <Truck className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
           </div>
           <div>
             <div className="font-display text-xl tracking-wider text-foreground">BTL Transportes</div>
