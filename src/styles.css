@@ -86,8 +86,8 @@
 
   --brand-navy: oklch(0.38 0.14 18);          /* bordô */
   --brand-navy-deep: oklch(0.26 0.11 18);     /* bordô profundo */
-  --brand-amber: oklch(0.99 0.003 15);        /* branco */
-  --brand-amber-glow: oklch(0.96 0.008 15);   /* off-white */
+  --brand-amber: oklch(0.92 0.04 30);         /* champagne — acento sobre bordô */
+  --brand-amber-glow: oklch(0.97 0.015 30);   /* off-white quente */
 
   --gradient-hero: linear-gradient(120deg, oklch(0.20 0.10 18 / 0.92) 0%, oklch(0.32 0.13 18 / 0.78) 55%, oklch(0.38 0.14 18 / 0.35) 100%);
   --gradient-amber: linear-gradient(135deg, oklch(0.45 0.16 18) 0%, oklch(0.32 0.13 18) 100%);
