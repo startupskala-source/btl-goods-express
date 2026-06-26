@@ -39,6 +39,7 @@ function Index() {
       <Services />
       <WhyUs />
       <Coverage />
+      <BrazilFiliais />
       <Cta />
       <Footer />
     </div>
@@ -103,7 +104,7 @@ function Hero() {
             </a>
             <a
               href="#servicos"
-              className="btn-glass-light inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold uppercase tracking-wider"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-transparent px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary transition hover:border-primary hover:bg-primary/5"
             >
               Nossos serviços
             </a>
