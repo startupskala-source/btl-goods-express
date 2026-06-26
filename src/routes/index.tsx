@@ -408,3 +408,166 @@ function Footer() {
     </footer>
   );
 }
+
+// ============================================================================
+// Brazil filiais map
+// ============================================================================
+
+const FILIAIS: Array<{ city: string; uf: string; x: number; y: number; hq?: boolean }> = [
+  { city: "São Paulo", uf: "SP", x: 280, y: 292, hq: true },
+  { city: "Rio de Janeiro", uf: "RJ", x: 312, y: 285 },
+  { city: "Belo Horizonte", uf: "MG", x: 305, y: 255 },
+  { city: "Curitiba", uf: "PR", x: 256, y: 312 },
+  { city: "Porto Alegre", uf: "RS", x: 232, y: 355 },
+  { city: "Brasília", uf: "DF", x: 268, y: 215 },
+  { city: "Salvador", uf: "BA", x: 355, y: 188 },
+  { city: "Recife", uf: "PE", x: 388, y: 135 },
+  { city: "Fortaleza", uf: "CE", x: 360, y: 95 },
+  { city: "Manaus", uf: "AM", x: 145, y: 90 },
+];
+
+function BrazilFiliais() {
+  return (
+    <section id="filiais" className="relative overflow-hidden bg-background py-24 md:py-32">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+            <span className="mr-2 inline-block h-px w-8 align-middle bg-primary" />
+            Nossas filiais
+            <span className="ml-2 inline-block h-px w-8 align-middle bg-primary" />
+          </div>
+          <h2 className="font-display text-5xl tracking-wide md:text-6xl">
+            Presença <span className="text-primary italic">de norte a sul</span> do Brasil
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
+            Uma rede de filiais estrategicamente posicionadas para entregar mais rápido, com custo justo e total rastreabilidade.
+          </p>
+        </div>
+
+        <div className="mt-16 grid gap-12 md:grid-cols-[1.2fr_1fr] md:items-center">
+          <div className="relative">
+            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/5 via-transparent to-primary/10 blur-2xl" />
+            <svg
+              viewBox="0 0 400 400"
+              className="h-auto w-full"
+              role="img"
+              aria-label="Mapa do Brasil com filiais da BTL Transportes"
+            >
+              <defs>
+                <linearGradient id="brFill" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="oklch(0.96 0.02 25)" />
+                  <stop offset="100%" stopColor="oklch(0.92 0.04 25)" />
+                </linearGradient>
+                <filter id="pinShadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="oklch(0.38 0.14 18)" floodOpacity="0.35" />
+                </filter>
+              </defs>
+
+              {/* Stylized Brazil outline */}
+              <path
+                d="
+                  M 388 135
+                  Q 395 110 380 95
+                  Q 360 80 340 92
+                  Q 310 80 290 88
+                  Q 268 70 248 60
+                  Q 222 48 200 40
+                  Q 170 28 140 30
+                  Q 108 36 92 70
+                  Q 70 110 60 160
+                  Q 58 200 110 215
+                  Q 170 218 195 240
+                  Q 200 290 220 330
+                  Q 235 365 260 360
+                  Q 295 350 300 305
+                  Q 320 300 330 285
+                  Q 355 250 365 200
+                  Q 380 165 388 135 Z
+                "
+                fill="url(#brFill)"
+                stroke="oklch(0.38 0.14 18 / 0.35)"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+
+              {/* Connecting routes from SP hub */}
+              {FILIAIS.filter((f) => !f.hq).map((f) => (
+                <line
+                  key={`route-${f.uf}`}
+                  x1={280}
+                  y1={292}
+                  x2={f.x}
+                  y2={f.y}
+                  stroke="oklch(0.38 0.14 18 / 0.25)"
+                  strokeWidth="1"
+                  strokeDasharray="3 3"
+                />
+              ))}
+
+              {/* Pins */}
+              {FILIAIS.map((f) => (
+                <g key={f.uf} filter="url(#pinShadow)">
+                  {f.hq && (
+                    <circle
+                      cx={f.x}
+                      cy={f.y}
+                      r="14"
+                      fill="oklch(0.38 0.14 18 / 0.18)"
+                    >
+                      <animate attributeName="r" values="10;18;10" dur="2.4s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite" />
+                    </circle>
+                  )}
+                  <circle cx={f.x} cy={f.y} r={f.hq ? 7 : 5} fill="oklch(0.38 0.14 18)" />
+                  <circle cx={f.x} cy={f.y} r={f.hq ? 3 : 2} fill="white" />
+                  <text
+                    x={f.x + 10}
+                    y={f.y + 4}
+                    fontSize="11"
+                    fontWeight={f.hq ? 700 : 600}
+                    fill="oklch(0.22 0.04 18)"
+                    style={{ fontFamily: "Barlow, sans-serif" }}
+                  >
+                    {f.uf}
+                  </text>
+                </g>
+              ))}
+            </svg>
+          </div>
+
+          <div>
+            <ul className="grid grid-cols-2 gap-3">
+              {FILIAIS.map((f) => (
+                <li
+                  key={f.uf}
+                  className="group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition hover:border-primary/40 hover:shadow-elegant"
+                >
+                  <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${f.hq ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}>
+                    <MapPin className="h-4 w-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="truncate font-display text-sm tracking-wide text-foreground">
+                      {f.city}
+                      {f.hq && <span className="ml-1.5 text-[10px] font-semibold uppercase tracking-widest text-primary">Matriz</span>}
+                    </div>
+                    <div className="text-[11px] uppercase tracking-widest text-muted-foreground">{f.uf}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 p-5">
+              <div className="font-display text-lg tracking-wide text-foreground">
+                + {FILIAIS.length} filiais conectadas em rede
+              </div>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Coletas e entregas integradas, com SLA monitorado em todas as praças.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
