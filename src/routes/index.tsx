@@ -8,6 +8,7 @@ import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
 import panasonicLogo from "@/assets/panasonic.png.asset.json";
 import electroluxLogo from "@/assets/electrolux.png.asset.json";
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
+import { WorldMap } from "@/components/ui/map";
 import {
   ShieldCheck,
   MapPin,
@@ -444,17 +445,17 @@ function Footer() {
 // Brazil filiais map
 // ============================================================================
 
-const FILIAIS: Array<{ city: string; uf: string; x: number; y: number; hq?: boolean }> = [
-  { city: "São Paulo", uf: "SP", x: 280, y: 292, hq: true },
-  { city: "Rio de Janeiro", uf: "RJ", x: 312, y: 285 },
-  { city: "Belo Horizonte", uf: "MG", x: 305, y: 255 },
-  { city: "Curitiba", uf: "PR", x: 256, y: 312 },
-  { city: "Porto Alegre", uf: "RS", x: 232, y: 355 },
-  { city: "Brasília", uf: "DF", x: 268, y: 215 },
-  { city: "Salvador", uf: "BA", x: 355, y: 188 },
-  { city: "Recife", uf: "PE", x: 388, y: 135 },
-  { city: "Fortaleza", uf: "CE", x: 360, y: 95 },
-  { city: "Manaus", uf: "AM", x: 145, y: 90 },
+const FILIAIS: Array<{ city: string; uf: string; lat: number; lng: number; hq?: boolean }> = [
+  { city: "São Paulo", uf: "SP", lat: -23.5505, lng: -46.6333, hq: true },
+  { city: "Rio de Janeiro", uf: "RJ", lat: -22.9068, lng: -43.1729 },
+  { city: "Belo Horizonte", uf: "MG", lat: -19.9167, lng: -43.9345 },
+  { city: "Curitiba", uf: "PR", lat: -25.4284, lng: -49.2733 },
+  { city: "Porto Alegre", uf: "RS", lat: -30.0346, lng: -51.2177 },
+  { city: "Brasília", uf: "DF", lat: -15.7939, lng: -47.8828 },
+  { city: "Salvador", uf: "BA", lat: -12.9777, lng: -38.5016 },
+  { city: "Recife", uf: "PE", lat: -8.0476, lng: -34.8770 },
+  { city: "Fortaleza", uf: "CE", lat: -3.7319, lng: -38.5267 },
+  { city: "Manaus", uf: "AM", lat: -3.119, lng: -60.0217 },
 ];
 
 function BrazilFiliais() {
@@ -476,95 +477,21 @@ function BrazilFiliais() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-12 md:grid-cols-[1.2fr_1fr] md:items-center">
+        <div className="mt-16 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div className="relative">
             <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/5 via-transparent to-primary/10 blur-2xl" />
-            <svg
-              viewBox="0 0 400 400"
-              className="h-auto w-full"
-              role="img"
-              aria-label="Mapa do Brasil com filiais da BTL Transportes"
-            >
-              <defs>
-                <linearGradient id="brFill" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.96 0.02 25)" />
-                  <stop offset="100%" stopColor="oklch(0.92 0.04 25)" />
-                </linearGradient>
-                <filter id="pinShadow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="oklch(0.38 0.14 18)" floodOpacity="0.35" />
-                </filter>
-              </defs>
-
-              {/* Stylized Brazil outline */}
-              <path
-                d="
-                  M 388 135
-                  Q 395 110 380 95
-                  Q 360 80 340 92
-                  Q 310 80 290 88
-                  Q 268 70 248 60
-                  Q 222 48 200 40
-                  Q 170 28 140 30
-                  Q 108 36 92 70
-                  Q 70 110 60 160
-                  Q 58 200 110 215
-                  Q 170 218 195 240
-                  Q 200 290 220 330
-                  Q 235 365 260 360
-                  Q 295 350 300 305
-                  Q 320 300 330 285
-                  Q 355 250 365 200
-                  Q 380 165 388 135 Z
-                "
-                fill="url(#brFill)"
-                stroke="oklch(0.38 0.14 18 / 0.35)"
-                strokeWidth="1.5"
-                strokeLinejoin="round"
+            <div className="overflow-hidden rounded-2xl border border-border bg-white p-2 shadow-elegant">
+              <WorldMap
+                lineColor="oklch(0.38 0.14 18)"
+                dots={FILIAIS.filter((f) => !f.hq).map((f) => {
+                  const hq = FILIAIS.find((x) => x.hq)!;
+                  return {
+                    start: { lat: hq.lat, lng: hq.lng, label: hq.city },
+                    end: { lat: f.lat, lng: f.lng, label: f.city },
+                  };
+                })}
               />
-
-              {/* Connecting routes from SP hub */}
-              {FILIAIS.filter((f) => !f.hq).map((f) => (
-                <line
-                  key={`route-${f.uf}`}
-                  x1={280}
-                  y1={292}
-                  x2={f.x}
-                  y2={f.y}
-                  stroke="oklch(0.38 0.14 18 / 0.25)"
-                  strokeWidth="1"
-                  strokeDasharray="3 3"
-                />
-              ))}
-
-              {/* Pins */}
-              {FILIAIS.map((f) => (
-                <g key={f.uf} filter="url(#pinShadow)">
-                  {f.hq && (
-                    <circle
-                      cx={f.x}
-                      cy={f.y}
-                      r="14"
-                      fill="oklch(0.38 0.14 18 / 0.18)"
-                    >
-                      <animate attributeName="r" values="10;18;10" dur="2.4s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite" />
-                    </circle>
-                  )}
-                  <circle cx={f.x} cy={f.y} r={f.hq ? 7 : 5} fill="oklch(0.38 0.14 18)" />
-                  <circle cx={f.x} cy={f.y} r={f.hq ? 3 : 2} fill="white" />
-                  <text
-                    x={f.x + 10}
-                    y={f.y + 4}
-                    fontSize="11"
-                    fontWeight={f.hq ? 700 : 600}
-                    fill="oklch(0.22 0.04 18)"
-                    style={{ fontFamily: "Barlow, sans-serif" }}
-                  >
-                    {f.uf}
-                  </text>
-                </g>
-              ))}
-            </svg>
+            </div>
           </div>
 
           <div>
