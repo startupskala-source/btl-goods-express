@@ -175,24 +175,24 @@ function Marquee() {
 
 function Partners() {
   const logos = [
-    { src: "https://svgl.app/library/samsung.svg", alt: "Samsung" },
-    { src: "https://svgl.app/library/lg.svg", alt: "LG" },
-    { src: "https://svgl.app/library/electrolux.svg", alt: "Electrolux" },
-    { src: "https://svgl.app/library/philips.svg", alt: "Philips" },
-    { src: "https://svgl.app/library/whirlpool.svg", alt: "Whirlpool" },
-    { src: "https://svgl.app/library/panasonic.svg", alt: "Panasonic" },
-    { src: "https://svgl.app/library/bosch.svg", alt: "Bosch" },
-    { src: "https://svgl.app/library/sony.svg", alt: "Sony" },
+    { src: "https://svgl.app/library/nvidia-wordmark-light.svg", alt: "Nvidia" },
+    { src: "https://svgl.app/library/supabase_wordmark_light.svg", alt: "Supabase" },
+    { src: "https://svgl.app/library/openai_wordmark_light.svg", alt: "OpenAI" },
+    { src: "https://svgl.app/library/turso-wordmark-light.svg", alt: "Turso" },
+    { src: "https://svgl.app/library/vercel_wordmark.svg", alt: "Vercel" },
+    { src: "https://svgl.app/library/github_wordmark_light.svg", alt: "GitHub" },
+    { src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg", alt: "Claude AI" },
+    { src: "https://svgl.app/library/clerk-wordmark-light.svg", alt: "Clerk" },
   ];
   return (
-    <section className="border-y border-border bg-secondary py-14">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-8 flex flex-col items-center gap-2 text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-            Marcas que confiam na BTL
+    <section className="relative isolate overflow-hidden bg-[#0a0a0a] py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-12 flex flex-col items-center gap-3 text-center">
+          <span className="text-base font-medium text-neutral-400">
+            Already used by
           </span>
-          <h2 className="font-display text-3xl tracking-wide text-foreground md:text-4xl">
-            Parceiros de <span className="text-primary italic">ponta a ponta</span>
+          <h2 className="font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+            Best in the Game
           </h2>
         </div>
         <LogoCloud logos={logos} />
