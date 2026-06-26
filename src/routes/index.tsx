@@ -2,6 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroTruck from "@/assets/hero-truck.jpg";
 import warehouse from "@/assets/warehouse.jpg";
 import btlLogo from "@/assets/btl-logo.png.asset.json";
+import muellerLogo from "@/assets/mueller.png.asset.json";
+import osterLogo from "@/assets/oster.png.asset.json";
+import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
+import panasonicLogo from "@/assets/panasonic.png.asset.json";
+import electroluxLogo from "@/assets/electrolux.png.asset.json";
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
 import {
   ShieldCheck,
@@ -175,14 +180,11 @@ function Marquee() {
 
 function Partners() {
   const logos = [
-    { src: "https://svgl.app/library/nvidia-wordmark-dark.svg", alt: "Nvidia" },
-    { src: "https://svgl.app/library/supabase_wordmark_dark.svg", alt: "Supabase" },
-    { src: "https://svgl.app/library/openai_wordmark_dark.svg", alt: "OpenAI" },
-    { src: "https://svgl.app/library/turso-wordmark-dark.svg", alt: "Turso" },
-    { src: "https://svgl.app/library/vercel_wordmark_dark.svg", alt: "Vercel" },
-    { src: "https://svgl.app/library/github_wordmark_dark.svg", alt: "GitHub" },
-    { src: "https://svgl.app/library/claude-ai-wordmark-icon.svg", alt: "Claude AI" },
-    { src: "https://svgl.app/library/clerk-wordmark-dark.svg", alt: "Clerk" },
+    { src: muellerLogo.url, alt: "Mueller", width: 200, height: 60 },
+    { src: osterLogo.url, alt: "Oster", width: 200, height: 60 },
+    { src: whirlpoolLogo.url, alt: "Whirlpool", width: 200, height: 60 },
+    { src: panasonicLogo.url, alt: "Panasonic", width: 200, height: 60 },
+    { src: electroluxLogo.url, alt: "Electrolux", width: 200, height: 60 },
   ];
   return (
     <section className="relative isolate overflow-hidden bg-white py-20">
