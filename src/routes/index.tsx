@@ -477,41 +477,10 @@ function BrazilFiliais() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16">
-          <div className="relative mx-auto w-full">
+        <div className="mt-16">
+          <div className="relative mx-auto w-full max-w-4xl">
             <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-transparent to-primary/20 blur-3xl" />
             <FiliaisFlightMap />
-          </div>
-
-          <div>
-            <ul className="grid grid-cols-2 gap-3">
-              {FILIAIS.map((f) => (
-                <li
-                  key={f.uf}
-                  className="group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition hover:border-primary/40 hover:shadow-elegant"
-                >
-                  <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${f.hq ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}>
-                    <MapPin className="h-4 w-4" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="truncate font-display text-sm tracking-wide text-foreground">
-                      {f.city}
-                      {f.hq && <span className="ml-1.5 text-[10px] font-semibold uppercase tracking-widest text-primary">Matriz</span>}
-                    </div>
-                    <div className="text-[11px] uppercase tracking-widest text-muted-foreground">{f.uf}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 p-5">
-              <div className="font-display text-lg tracking-wide text-foreground">
-                + {FILIAIS.length} filiais conectadas em rede
-              </div>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Coletas e entregas integradas, com SLA monitorado em todas as praças.
-              </p>
-            </div>
           </div>
         </div>
       </div>
