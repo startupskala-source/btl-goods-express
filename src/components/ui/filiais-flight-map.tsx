@@ -44,7 +44,7 @@ export function FiliaisFlightMap() {
           showLabel
           hoverEffect
           tripType="one-way"
-          lineStyle="dashed"
+          lineStyle="dash"
           animate={{ duration: 6000 }}
         />
       </Map>
