@@ -30,16 +30,6 @@ export function LogoCloud({ logos, className, ...props }: LogoCloudProps) {
         ))}
       </InfiniteSlider>
 
-      <ProgressiveBlur
-        className="pointer-events-none absolute inset-y-0 left-0 h-full w-24"
-        direction="left"
-        blurIntensity={1}
-      />
-      <ProgressiveBlur
-        className="pointer-events-none absolute inset-y-0 right-0 h-full w-24"
-        direction="right"
-        blurIntensity={1}
-      />
     </div>
   );
 }
