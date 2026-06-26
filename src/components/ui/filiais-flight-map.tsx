@@ -36,18 +36,23 @@ export function FiliaisFlightMap() {
   const { Map, FlightRoutes } = Mod;
 
   return (
-    <div className="h-[460px] w-full overflow-hidden rounded-2xl border border-primary/15 bg-background shadow-elegant md:h-[560px]">
-      <Map center={[-52, -14]} zoom={3.1}>
-        <FlightRoutes
-          routes={ROUTES}
-          showAirports
-          showLabel
-          hoverEffect
-          tripType="one-way"
-          lineStyle="dash"
-          animate={{ duration: 6000 }}
-        />
-      </Map>
+    <div className="w-full">
+      <div className="relative w-full overflow-hidden rounded-2xl border border-primary/15 bg-background shadow-elegant aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/3]">
+        <div className="absolute inset-0">
+          <Map center={[-52, -14]} zoom={3.1}>
+            <FlightRoutes
+              routes={ROUTES}
+              color="oklch(0.42 0.15 18)"
+              showAirports
+              showLabel
+              hoverEffect
+              tripType="one-way"
+              lineStyle="dash"
+              animate={{ duration: 6000 }}
+            />
+          </Map>
+        </div>
+      </div>
     </div>
   );
 }
