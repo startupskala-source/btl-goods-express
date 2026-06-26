@@ -8,7 +8,7 @@ import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
 import panasonicLogo from "@/assets/panasonic.png.asset.json";
 import electroluxLogo from "@/assets/electrolux.png.asset.json";
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
-import { WorldMap } from "@/components/ui/map";
+import { BrazilMap } from "@/components/ui/brazil-map";
 import {
   ShieldCheck,
   MapPin,
@@ -477,21 +477,10 @@ function BrazilFiliais() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-          <div className="relative">
-            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/5 via-transparent to-primary/10 blur-2xl" />
-            <div className="overflow-hidden rounded-2xl border border-border bg-white p-2 shadow-elegant">
-              <WorldMap
-                lineColor="oklch(0.38 0.14 18)"
-                dots={FILIAIS.filter((f) => !f.hq).map((f) => {
-                  const hq = FILIAIS.find((x) => x.hq)!;
-                  return {
-                    start: { lat: hq.lat, lng: hq.lng, label: hq.city },
-                    end: { lat: f.lat, lng: f.lng, label: f.city },
-                  };
-                })}
-              />
-            </div>
+        <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16">
+          <div className="relative mx-auto w-full max-w-[520px]">
+            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-transparent to-primary/20 blur-3xl" />
+            <BrazilMap pins={FILIAIS} color="oklch(0.38 0.14 18)" />
           </div>
 
           <div>
