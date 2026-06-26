@@ -24,7 +24,7 @@ export function LogoCloud({ logos, className, ...props }: LogoCloudProps) {
             alt={logo.alt}
             width={logo.width ?? 140}
             height={logo.height ?? 40}
-            className="h-10 w-auto opacity-80 transition hover:opacity-100"
+            className="h-8 w-auto opacity-90 transition hover:opacity-100 md:h-10"
             loading="lazy"
           />
         ))}
