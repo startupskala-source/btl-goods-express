@@ -175,23 +175,23 @@ function Marquee() {
 
 function Partners() {
   const logos = [
-    { src: "https://svgl.app/library/nvidia-wordmark-light.svg", alt: "Nvidia" },
-    { src: "https://svgl.app/library/supabase_wordmark_light.svg", alt: "Supabase" },
-    { src: "https://svgl.app/library/openai_wordmark_light.svg", alt: "OpenAI" },
-    { src: "https://svgl.app/library/turso-wordmark-light.svg", alt: "Turso" },
-    { src: "https://svgl.app/library/vercel_wordmark.svg", alt: "Vercel" },
-    { src: "https://svgl.app/library/github_wordmark_light.svg", alt: "GitHub" },
-    { src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg", alt: "Claude AI" },
-    { src: "https://svgl.app/library/clerk-wordmark-light.svg", alt: "Clerk" },
+    { src: "https://svgl.app/library/nvidia-wordmark-dark.svg", alt: "Nvidia" },
+    { src: "https://svgl.app/library/supabase_wordmark_dark.svg", alt: "Supabase" },
+    { src: "https://svgl.app/library/openai_wordmark_dark.svg", alt: "OpenAI" },
+    { src: "https://svgl.app/library/turso-wordmark-dark.svg", alt: "Turso" },
+    { src: "https://svgl.app/library/vercel_wordmark_dark.svg", alt: "Vercel" },
+    { src: "https://svgl.app/library/github_wordmark_dark.svg", alt: "GitHub" },
+    { src: "https://svgl.app/library/claude-ai-wordmark-icon.svg", alt: "Claude AI" },
+    { src: "https://svgl.app/library/clerk-wordmark-dark.svg", alt: "Clerk" },
   ];
   return (
-    <section className="relative isolate overflow-hidden bg-[#0a0a0a] py-20">
+    <section className="relative isolate overflow-hidden bg-white py-20">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-12 flex flex-col items-center gap-3 text-center">
-          <span className="text-base font-medium text-neutral-400">
+          <span className="text-base font-medium text-neutral-500">
             Already used by
           </span>
-          <h2 className="font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h2 className="font-display text-4xl font-bold tracking-tight text-primary md:text-5xl">
             Best in the Game
           </h2>
         </div>
