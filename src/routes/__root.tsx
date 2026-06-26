@@ -87,8 +87,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "BTL Transportes — Linha branca e bazar com segurança" },
       { name: "twitter:description", content: "Transportadora especializada em linha branca e bazar. Frota própria, rastreamento e cobertura nacional." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c5e8f361-ca95-4eb2-9c99-4a167ed89173/id-preview-c710ad9c--f121d32a-e98e-4f0e-a0f3-a1997ff07689.lovable.app-1782211289825.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c5e8f361-ca95-4eb2-9c99-4a167ed89173/id-preview-c710ad9c--f121d32a-e98e-4f0e-a0f3-a1997ff07689.lovable.app-1782211289825.png" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:site_name", content: "BTL Transportes" },
+      { property: "og:image", content: "/og-image.png" },
+      { name: "twitter:image", content: "/og-image.png" },
+      { name: "theme-color", content: "#6b1d2b" },
+      { name: "robots", content: "index, follow" },
     ],
     links: [
       {
@@ -111,9 +115,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "BTL Transportes e Armazenagem",
+              url: "https://btltransportes.com.br",
+              logo: "https://btltransportes.com.br/assets/btl-logo.png",
+              description: "Transportadora especializada em linha branca e bazar. Frota própria, rastreamento em tempo real e cobertura nacional.",
+              foundingYear: "2010",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+55-11-4002-8922",
+                contactType: "comercial",
+                email: "comercial@btltransportes.com.br",
+                areaServed: "BR",
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "São Paulo",
+                addressRegion: "SP",
+                addressCountry: "BR",
+              },
+              sameAs: [
+                "https://www.instagram.com/btltransportes",
+                "https://www.linkedin.com/company/btltransportes",
+              ],
+            }),
+          }}
+        />
       </head>
       <body>
         {children}
