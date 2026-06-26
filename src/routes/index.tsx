@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroTruck from "@/assets/hero-truck.jpg";
 import warehouse from "@/assets/warehouse.jpg";
 import btlLogo from "@/assets/btl-logo.png.asset.json";
+import { LogoCloud } from "@/components/ui/logo-cloud-4";
 import {
   ShieldCheck,
   MapPin,
@@ -35,7 +36,7 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
-      <Marquee />
+      <Partners />
       <Services />
       <WhyUs />
       <Coverage />
@@ -167,6 +168,34 @@ function Marquee() {
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
           </span>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function Partners() {
+  const logos = [
+    { src: "https://svgl.app/library/samsung.svg", alt: "Samsung" },
+    { src: "https://svgl.app/library/lg.svg", alt: "LG" },
+    { src: "https://svgl.app/library/electrolux.svg", alt: "Electrolux" },
+    { src: "https://svgl.app/library/philips.svg", alt: "Philips" },
+    { src: "https://svgl.app/library/whirlpool.svg", alt: "Whirlpool" },
+    { src: "https://svgl.app/library/panasonic.svg", alt: "Panasonic" },
+    { src: "https://svgl.app/library/bosch.svg", alt: "Bosch" },
+    { src: "https://svgl.app/library/sony.svg", alt: "Sony" },
+  ];
+  return (
+    <section className="border-y border-border bg-secondary py-14">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-8 flex flex-col items-center gap-2 text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+            Marcas que confiam na BTL
+          </span>
+          <h2 className="font-display text-3xl tracking-wide text-foreground md:text-4xl">
+            Parceiros de <span className="text-primary italic">ponta a ponta</span>
+          </h2>
+        </div>
+        <LogoCloud logos={logos} />
       </div>
     </section>
   );
