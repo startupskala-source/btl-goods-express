@@ -8,7 +8,7 @@ import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
 import panasonicLogo from "@/assets/panasonic.png.asset.json";
 import electroluxLogo from "@/assets/electrolux.png.asset.json";
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
-import { BrazilMap } from "@/components/ui/brazil-map";
+import { FiliaisFlightMap } from "@/components/ui/filiais-flight-map";
 import {
   ShieldCheck,
   MapPin,
@@ -478,9 +478,9 @@ function BrazilFiliais() {
         </div>
 
         <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16">
-          <div className="relative mx-auto w-full max-w-[520px]">
+          <div className="relative mx-auto w-full">
             <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-transparent to-primary/20 blur-3xl" />
-            <BrazilMap pins={FILIAIS} color="oklch(0.38 0.14 18)" />
+            <FiliaisFlightMap />
           </div>
 
           <div>
