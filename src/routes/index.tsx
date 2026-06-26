@@ -8,7 +8,7 @@ import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
 import panasonicLogo from "@/assets/panasonic.png.asset.json";
 import electroluxLogo from "@/assets/electrolux.png.asset.json";
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
-import { FiliaisFlightMap } from "@/components/ui/filiais-flight-map";
+import { TruckRoutesMap } from "@/components/ui/truck-routes-map";
 import {
   ShieldCheck,
   MapPin,
@@ -478,9 +478,22 @@ function BrazilFiliais() {
         </div>
 
         <div className="mt-16">
-          <div className="relative mx-auto w-full max-w-4xl">
+          <div className="relative mx-auto w-full max-w-3xl">
             <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-transparent to-primary/20 blur-3xl" />
-            <FiliaisFlightMap />
+            <TruckRoutesMap
+              pins={[
+                { city: "São Paulo", uf: "SP", lat: -23.55, lng: -46.63, hq: true },
+                { city: "Rio de Janeiro", uf: "RJ", lat: -22.91, lng: -43.17 },
+                { city: "Belo Horizonte", uf: "MG", lat: -19.92, lng: -43.94 },
+                { city: "Curitiba", uf: "PR", lat: -25.43, lng: -49.27 },
+                { city: "Porto Alegre", uf: "RS", lat: -30.03, lng: -51.23 },
+                { city: "Brasília", uf: "DF", lat: -15.78, lng: -47.93 },
+                { city: "Salvador", uf: "BA", lat: -12.97, lng: -38.50 },
+                { city: "Recife", uf: "PE", lat: -8.05, lng: -34.88 },
+                { city: "Fortaleza", uf: "CE", lat: -3.73, lng: -38.52 },
+                { city: "Manaus", uf: "AM", lat: -3.10, lng: -60.02 },
+              ]}
+            />
           </div>
         </div>
       </div>
